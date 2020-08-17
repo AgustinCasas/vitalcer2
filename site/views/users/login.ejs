@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+    <title>Vitalcer |  Sign in</title>
+</head>
+
+<body class="bodyCrearCuenta">   
+    <%- include('../partials/header')%>
+    
+    <div>
+        <form class="formCrearCuenta" action="/users/login" method="POST">
+            <h2 class="tituloFormCrear">¡Hola! Ingresa a tu cuenta:</h2>
+            <input class="inputCrearCuenta" type="email" name="email" placeholder="Email" required>
+                
+                <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.email){ %>
+                    <%= errors.email.msg %>
+                    <%	} %>
+                    <% } %>
+                </p>  
+            <input class="inputCrearCuenta" type="password" name="password" placeholder="Clave" required>
+            <p class="errores"  > <% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.password){ %>
+                <%= errors.password.msg %>
+                <%	} %>
+                <% } %>
+            </p>    
+            <input class="inputCrearCuenta" type="submit" value="Continuar" id="botonContinuarCrear">
+            <input class="inputCrearCuenta" type="button" value="Crea tu cuenta" id="botonCrearCuenta">
+            <div class=cajaFormulario>
+            <input class="inputCrearCheck" type="checkbox">
+            <h3 class="textoCheckFormulario">Recodar tu email</h3>
+            </div>
+        </form>
+        </div>
+        <%- include('../partials/footer')%> 
+    </body>
+
+</html>

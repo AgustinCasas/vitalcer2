@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+    <title>Vitalcer |  <%= product.name %></title>
+</head>
+<body class="bodyCarrito">
+    <!-- header -->
+    <%- include('partials/header')%>
+
+    <!-- Main product -->
+
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-md-5">
+          <img src="/images/products/<%= product.img %> " alt="" class = "avena">
+
+        </div>
+        <div class = "col-md-7">
+          <P class = "newArrival text-center"> NEW</P>
+          <h1><%= product.name %></h1>
+          <form method="POST" action="/cart/addToCart">
+            <label for="exampleFormControlSelect1">Cantidad</label>
+            <input id="quantity" type="number" name="quantity" value="1" min='1' max='100' step=1> <br>
+            <input type="hidden" value="<%= product.id %>" name="id"> <br>
+            <button class="btn btn-primary btn-lg">Agregar al carrito</button>
+        </form>
+          <h3>Descripción:</h3>
+            <p><%= product.description %></p>                  
+          </div>
+      </div>
+      <a href="/products/edit/<%= product.id %> " class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/delete/<%= product.id %>?_method=DELETE " method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
+					</article>
+    </div>
+      
+    <!-- footer -->
+    <%- include('partials/footer')%> 
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+    <title>Vitalcer |  Resultado búsqueda</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de la búsqueda: </h2>
+			</div>
+            <% if (result.length == 0) { %>
+                <h1 id="not-results" class="uk-heading-line uk-text-center" style="font-weight:200;"><span>No se encontraron
+                        resultados</span></h1>
+                
+         <% } else { %>
+                <div id=productContainer class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+                    <% for( let i = 0; i < result.length; i++ ) { %>
+                        <div>
+                            <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                                <a href="/products/detail/<%= result[i].id %>">
+                                    <div style="height: 300px;">
+                                        <img src="/img/<%= result[i].img %>" alt="producto" class="imagen-producto">
+                                        <p id="name"><%= result[i].name %> </p>
+                                        <p id="price">$<%= result[i].price %> </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        <% }%>
+		</div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Vitalcer |  Home</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/styles.css">
+      <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+    </head>
+    <body class="bodyHome">
+
+      <%- include('partials/header')%>
+
+        <div class="containerBody">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <img src="/images/fondoBody1.jpg" class="d-block w-100" alt="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/fondoBody2.jpg" class="d-block w-100" alt="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/fondoBody3.jpg" class="d-block w-100" alt="">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/fondoBody4.jpg" class="d-block w-100" alt="">
+                  </div> 
+                </div>
+              </div>
+              <section class="homeSection col-sm-12 col-md-6">    
+                <div> 
+                    <h1>- NATURAL MARKET -</h1>
+                    <p class="textoHome">Somos una empresa dedicada a la alimentación consciente, siendo la franquicia con el mayor crecimiento en el rubro de las dietéticas en Argentina, desde el año 2016.
+                Cada uno de nuestros productos cuentan con la mejor calidad y están dedicados a ayudar a mantener un estilo de vida saludable, lleno de energía, bienestar y longevidad.</p>
+                </div>
+
+            </section>
+
+            <div class="proDestTitle">
+                <h2 class="productosDestacados">PRODUCTOS DESTACADOS</h2>
+              </div>
+
+              <% products.forEach(function(product){ %>
+            <div class="row columnas">
+                <div class="col-md-12 col-lg-4"><div class="prodest"><%= product.name %>
+                  <a href=" /products/detail/<%= product.id %>" class="aHome"><img class="imgProDest" src="/images/products/<%=product.img%>" alt="prodnuevo1"></div></a></div>
+            </div>
+              <% }) %>
+        </div>
+        
+      
+        <%- include('partials/footer')%> 
+      </body>
+  </html>
